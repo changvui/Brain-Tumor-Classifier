@@ -1,10 +1,10 @@
-# app.py (Final Debug Version)
+# app.py (Quick Fix Version)
 
 import streamlit as st
 from PIL import Image
 import torch
 from transformers import SegformerForImageClassification, SegformerImageProcessor
-import os # <--- ADD THIS LINE AT THE TOP
+import os
 
 # Set page configuration
 st.set_page_config(
@@ -16,8 +16,10 @@ st.set_page_config(
 # --- MODEL LOADING ---
 @st.cache_resource
 def load_model():
-    """Load the fine-tuned model and processor from the local 'model' directory."""
-    model_path = "model"
+    """Load the fine-tuned model and processor from the nested directory."""
+    # THE QUICK FIX IS HERE:
+    model_path = "Brain-Tumor-Classifier/model"
+    
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
     try:
@@ -31,16 +33,14 @@ def load_model():
 st.title("🧠 Brain Tumor MRI Classifier")
 st.markdown("Upload an MRI scan of a brain. The AI will predict if it detects a glioma, meningioma, pituitary tumor, or no tumor.")
 
-# ==============================================================================
-# THE DEBUGGING LINE IS HERE: We ask the app to show us what files it sees
-st.write("Current directory contents:", os.listdir("."))
-# ==============================================================================
+# (We can remove the debug line now)
+# st.write("Current directory contents:", os.listdir("."))
 
 model, processor, device = load_model()
 
 if model is None:
     st.error(f"Error loading the model: {device}")
-    st.error("Please ensure the 'model' directory is in the same folder as this app and contains the correct files.")
+    st.error("Please ensure the model files exist at the correct path within the repository.")
 else:
     st.success("AI model loaded successfully!")
     uploaded_file = st.file_uploader("Choose an MRI image...", type=["jpg", "jpeg", "png"])
