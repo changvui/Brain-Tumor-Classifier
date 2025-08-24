@@ -1,4 +1,4 @@
-# app.py (Final Polished Version)
+# app.py (Quick Fix Version)
 
 import streamlit as st
 from PIL import Image
@@ -17,7 +17,9 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     """Load the fine-tuned model and processor from the nested directory."""
+    # THE QUICK FIX IS HERE:
     model_path = "Brain-Tumor-Classifier/model"
+    
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
     try:
@@ -31,6 +33,9 @@ def load_model():
 st.title("🧠 Brain Tumor MRI Classifier")
 st.markdown("Upload an MRI scan of a brain. The AI will predict if it detects a glioma, meningioma, pituitary tumor, or no tumor.")
 
+# (We can remove the debug line now)
+# st.write("Current directory contents:", os.listdir("."))
+
 model, processor, device = load_model()
 
 if model is None:
@@ -42,8 +47,7 @@ else:
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert("RGB")
-        # THE FIX IS HERE:
-        st.image(image, caption='Uploaded MRI Scan', use_container_width=True)
+        st.image(image, caption='Uploaded MRI Scan', use_column_width=True)
         st.write("")
 
         if st.button('Analyze Image'):
