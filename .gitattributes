@@ -1,2 +1,0 @@
-model/model.safetensors filter=lfs diff=lfs merge=lfs -text
-*.mov filter=lfs diff=lfs merge=lfs -text
