@@ -1,9 +1,0 @@
-transformers
-torch
-torchvision
-scikit-learn
-pandas
-numpy
-streamlit
-Pillow
-accelerate
