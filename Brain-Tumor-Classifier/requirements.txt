@@ -1,16 +1,7 @@
-# === Environment Setup ===
-streamlit==1.31.1
-numpy==1.26.4
-Pillow==10.2.0
-
-# === AI & Machine Learning ===
-torch==2.2.1
-transformers==4.38.2
-accelerate==0.27.2
-scikit-learn==1.4.1.post1
-
-# === Explainable AI (XAI) ===
-# This part is the key: we force uninstall the bad library first
-# just in case, then install the correct headless version.
-opencv-python-headless==4.9.0.80
-grad-cam==0.8.2
+streamlit
+transformers
+torch
+Pillow
+accelerate
+scikit-learn
+numpy
