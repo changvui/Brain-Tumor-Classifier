@@ -5,3 +5,4 @@ Pillow
 accelerate
 scikit-learn
 numpy
+pandas
