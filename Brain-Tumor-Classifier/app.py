@@ -40,7 +40,7 @@ else:
     st.success("AI model loaded successfully!")
     uploaded_file = st.file_uploader("Choose an MRI image...", type=["jpg", "jpeg", "png"])
 
-    if uploaded_file is not a None:
+    if uploaded_file is not None:
         image = Image.open(uploaded_file).convert("RGB")
         st.image(image, caption='Uploaded MRI Scan', use_container_width=True)
         st.write("")
