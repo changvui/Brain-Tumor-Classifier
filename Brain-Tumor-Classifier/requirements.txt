@@ -6,4 +6,7 @@ pandas
 numpy
 streamlit
 Pillow
+
 accelerate
+grad-cam
+opencv-python-headless
