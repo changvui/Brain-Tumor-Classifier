@@ -1,12 +1,9 @@
+streamlit
 transformers
 torch
-torchvision
-scikit-learn
-pandas
-numpy
-streamlit
 Pillow
-
 accelerate
 grad-cam
 opencv-python-headless
+scikit-learn
+numpy
